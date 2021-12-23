@@ -3,7 +3,7 @@ env:
   es2021: true
   node: true
 extends:
-  - 'plugin:vue/essential'
+  - 'plugin:vue/recommended'
   - standard
   - prettier
 parserOptions:

@@ -1,28 +1,43 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <header>
+      <h1>Memo App</h1>
+    </header>
+    <MemoList />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MemoList from './components/MemoList.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components: { MemoList },
+  beforeCreate() {
+    if (localStorage.getItem('nextMemoId') === null) {
+      localStorage.setItem('nextMemoId', 1)
+    }
   }
 }
 </script>
 
 <style>
+@import './css/reset.css';
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  max-width: 600px;
+  margin: 0 auto;
+}
+header {
+  margin: 1.5rem;
+}
+h1 {
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-size: 2.5rem;
 }
 </style>
